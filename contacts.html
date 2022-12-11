@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-title" >
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
+<title>Names</title>
+  
+<style>
+.contact {
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.contact:hover {
+  background: #d0d0d0;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div class="container">
+
+
+  <h2 class="center-align">Names</h2>
+ 
+  <input id="userInput" type="text" placeholder="Enter name.." />
+
+  <ul id="contactList" class="collection with-header">
+
+    <li class="collection-header">
+      <h4>A</h4>
+    </li>
+    <li class="collection-item contact">Aagni</li>
+    <li class="collection-item contact">Anni</li>
+    <li class="collection-item contact">Abdallah</li>
+
+    <li class="collection-header">
+      <h4>B</h4>
+    </li>
+    <li class="collection-item contact">Baby</li>
+    <li class="collection-item contact">Bunny</li>
+    <li class="collection-item contact">Bruce</li>
+
+    <li class="collection-header">
+      <h4>C</h4>
+    </li>
+    <li class="collection-item contact">Candy</li>
+    <li class="collection-item contact">Cindy</li>
+    <li class="collection-item contact">Cody</li>
+
+  </ul>
+</div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  
+      <script id="rendered-js" >
+(function () {
+  "use strict";
+  
+  let userInput = document.querySelector("#userInput");
+
+  userInput.addEventListener("keyup", filterContacts);
+
+  function filterContacts(event) {
+  
+    let userInputText = userInput.value;
+   
+    userInputText = userInputText.toLowerCase();
+
+  
+    let contactList = document.querySelector("#contactList");
+    let contactListChildren = contactList.querySelectorAll(
+    "li.collection-item");
+
+
+    contactListChildren.forEach(function (currentValue, index, array) {
+     
+      let currentContact = contactListChildren[index].innerText;
+      
+      currentContact = currentContact.toLowerCase();
+
+   
+      if (currentContact.search(userInputText) === 0) {
+        console.log("found in " + currentContact);
+        contactListChildren[index].style.display = "block";
+      } else {
+        contactListChildren[index].style.display = "none";
+      }
+    });
+  }
+})();
+    </script>
+
+  
+
+</body>
+
+</html>
